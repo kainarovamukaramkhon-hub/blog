@@ -1,0 +1,63 @@
+.container{
+    width: 88%;
+    margin: 6px;
+    padding: 30px;
+    text-align: center;
+    border: 8px solid pink;
+    border-radius: 10%;
+    height: 100vh;
+}
+header{
+    width: 88%;
+    margin: 6px;
+    padding: 30px;
+    text-align: center;
+    border: 8px solid pink;
+    border-radius: 10%;
+}
+body{
+background-color: rgb(243, 165, 151);
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td{
+    border: 2px solid rgb(137, 135, 135);
+}
+.irish-grover-regular {
+  font-family: "Irish Grover", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.btn{
+    border: 2px solid rgb(137, 135, 135);
+    padding: 10px;
+    margin: 20px;
+}
+label{
+    color: rgb(234, 0, 255);
+    font-size: 20px;
+}
+.div-flex{
+    display: flow-root;
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+    width: 40%;
+}
+input{
+    width: 200%;
+    font-size: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 20px;
+
+}
+textarea{
+    width: 200%;
+    font-size: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 20px;
+}
+
