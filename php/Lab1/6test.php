@@ -1,0 +1,26 @@
+<?php
+$a = 2;
+ $b = 2.0;
+  $c = '2';
+   $d = 'two'; 
+   $g = true;
+    $f = false;
+    // $c = $a + $b;
+    // $c = $a - $b;
+    // $c = $a / $b;
+    // $c = $a * $b;
+    $i = $a + $c;
+    $i = $a - $c;
+    $i = $a / $c;
+    $i = $a * $c;
+    // $i = $a + $d;
+    $i = $a + $g;
+    $i = $a - $g;
+    $i = $a / $g;
+    $i = $a * $g;
+    $i = $a + $f;
+     $i = $a - $f;
+    //  $i = $a / $f;
+    //   $i = $a * $f;
+    echo gettype($i);
+    gettype($c);
