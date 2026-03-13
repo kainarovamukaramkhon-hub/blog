@@ -1,0 +1,2 @@
+<?php
+    touch('new.txt');
