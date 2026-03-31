@@ -1,7 +1,7 @@
 <?php
     $str = "'1' '2' '3' '4' ";
     //Заменить числа на их квадраты
-    $pattern = "/(\d+)/";
+    $pattern = "/(\d+)/";//надо найти любую цифру которое повторяется от 1 и более раза и виложим на кармашек
     echo "str=$str<BR>";
     echo "pattern = $pattern<BR>";
     // echo preg_replace($pattern, '`', $str);
