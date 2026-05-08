@@ -1,6 +1,10 @@
 <?php
+    namespace src\Models\User;
+
         class User{
-        public function __construct(private string $name){
+            private $name;
+
+        public function __construct(string $name){
             $this->name = $name;
         }
 

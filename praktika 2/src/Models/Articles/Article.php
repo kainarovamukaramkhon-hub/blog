@@ -1,4 +1,8 @@
 <?php
+
+    namespace src\Models\Articles;
+    use \src\Models\User\User;
+
     class Article{
         private $text;
         private $title;
