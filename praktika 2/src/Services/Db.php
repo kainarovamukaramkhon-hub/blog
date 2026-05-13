@@ -16,13 +16,13 @@ class DB{
         $this->pdo->exec('SET NAMES utf8mb4');
     }
 
-    public function query(string $sql, $parameters = []) :?array
+    public function query(string $sql, $parameters = [], string $className='stdClass') 
     {
         $sth = $this->pdo->prepare($sql);
         $result = $sth->execute($parameters);
         if($result === false){
             return null;
         }
-        return $sth->fetchAll();
+        return $sth->fetchAll(\PDO::FETCH_CLASS, $className);
     }
 }

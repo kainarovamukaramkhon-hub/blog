@@ -3,6 +3,8 @@
     namespace src\Controllers;
     use \src\View\View;
     use \src\Services\DB;
+    use \src\Models\Articles\Article;
+    use \src\Models\User\User;
 
     class ArticleController{
         private $view;
@@ -15,7 +17,7 @@
 
         public function show(int $id){
             $sql = 'SELECT * FROM `articles` WHERE id=:id;';
-            $article = $this->db->query($sql,['id'=>$id]);
+            $article = $this->db->query($sql,['id'=>$id], Article::class);
 
             if($article == []){
                 $this->view->renderHtml('errors/404.php', [], 404);
@@ -23,7 +25,7 @@
             }
 
             $sql = 'SELECT * FROM `users` WHERE id=:id';
-            $user = $this->db->query($sql, ['id'=>$article[0]['author_id']]);
+            $user = $this->db->query($sql, ['id'=>$article[0]->getAuthorId()], User::class);
             $this->view->renderHtml('articles/show.php', ['article'=>$article[0], 'user'=>$user[0]]);
             //var_dump($article[0]);
         }

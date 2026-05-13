@@ -14,9 +14,9 @@
     <tr>
       <th scope="row"></th>
       <td><?php echo date('Y-m-d H:i:s');?></td>
-      <td><a href="article/<?=$article['id'];?>"><?=$article['name'];?></td></a>
-      <td><?=$article['text'];?></td>
-      <td><?=$article['author_id'];?></td>
+      <td><a href="article/<?=$article->getId();?>"><?=$article->getName();?></td></a>
+      <td><?=$article->getText();?></td>
+      <td><?=$article->getAuthorId();?></td>
     </tr>
     <?php endforeach;?>
   </tbody>
