@@ -2,27 +2,15 @@
 
     namespace src\Models\Articles;
     use \src\Models\User\User;
+    use \src\Models\AcrtiveRecordEntity;
 
-    class Article{
-        private $id;
-        private $authorId;
-        private $name;
-        private $text;
-        private $createdAt;
+    class Article extends AcrtiveRecordEntity{
+        protected $authorId;
+        protected $name;
+        protected $text;
+        protected $createdAt;
     
-    public function __set($name, $value){
-          $newProperty = $this->upperToCamel($name);
-          $this->$newProperty = $value;
-    }
-
-    private function upperToCamel(string $name){
-        return lcfirst(str_replace('_', '',ucwords($name,'_')));
-    }
-
-    public function getId() :int
-    {
-        return $this->id;
-    }
+   
     public function getName() :string
     {
         return $this->name;
@@ -34,5 +22,8 @@
     public function getAuthorId()
     {
         return $this->authorId;
+    }
+    public static function getTableName(){
+        return 'articles';
     }
     }

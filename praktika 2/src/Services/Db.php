@@ -4,8 +4,9 @@ namespace src\Services;
 
 class DB{
     private $pdo;
-
-    public function __construct(){
+    private static $instince;
+    
+    private function __construct(){
         $dbOptions = require 'settings.php';
         $this->pdo = new \PDO(
             'mysql:host='.$dbOptions['host'].';dbname='.$dbOptions['dbname'],
@@ -15,7 +16,12 @@ class DB{
         //var_dump($this->pdo)
         $this->pdo->exec('SET NAMES utf8mb4');
     }
+     
 
+    public static function getInstance(){
+        if (self::$instince === null) self::$instince = new self();
+        return self::$instince;
+    }
     public function query(string $sql, $parameters = [], string $className='stdClass') 
     {
         $sth = $this->pdo->prepare($sql);
