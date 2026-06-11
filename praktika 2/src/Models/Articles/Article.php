@@ -26,4 +26,7 @@
     public static function getTableName(){
         return 'articles';
     }
+    public function setAuthorId(User $user){
+        $this->authorId = $user->id;
+    }
     }

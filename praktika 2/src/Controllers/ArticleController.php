@@ -21,14 +21,25 @@
                 return;
             }
 
-            $sql = 'SELECT * FROM `users` WHERE id=:id';
+           // $sql = 'SELECT * FROM `users` WHERE id=:id';
             $user = User::getBYId($article->getAuthorId());
             $this->view->renderHtml('articles/show.php', ['article'=>$article, 'user'=>$user]);            
         }
 
         public function create(){
+
             return $this->view->renderHtml('articles/create.php');
         }
+
+        public function edit(int $id){
+            $article = Article::getById($id);
+            if($article == []) {
+                $this->view->renderHtml('errors/404.php', [], 404);
+                return;
+            }
+            return $this->view->renderHtml('articles/update.php', ['article'=>$article]);
+        }
+
         public function store(){
             $user = User::getById(1);
             $article = new Article;
@@ -36,5 +47,20 @@
             $article->text = $_POST['text'];
             $article->name = $_POST['name'];
             $article->save();
+            header("Location:/kaynarovam/praktika%202/www");
+        }
+
+        public function update(int $id){
+            $article = Article::getById($id);
+            $article->text = $_POST['text'];
+            $article->name = $_POST['name'];
+            $article->save();
+            header("Location:/kaynarovam/praktika%202/www/article/$id");
+        }
+
+        public function delete(int $id){
+            $article = Article::getById($id);
+            $article->delete();
+            header("Location:/kaynarovam/praktika%202/www");
         }
     }
